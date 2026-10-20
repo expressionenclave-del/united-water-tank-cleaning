@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Sparkles, Building2, CalendarCheck, HeartHandshake, ShieldCheck, Droplets, Home as HomeIcon } from 'lucide-react'
 import { Page, BookButton, WhatsAppButton } from '../components/Layout'
+import { Pic } from '../components/Illustrations'
 import { Wrap, Title, ServicesGrid, ProcessList, FAQList, CTA } from '../components/Sections'
 
 const highlights = [
@@ -30,8 +31,9 @@ export default function Home() {
     >
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-aqua-700 py-20 sm:py-28">
         <Droplets aria-hidden="true" className="absolute -right-10 -top-10 h-96 w-96 text-white/5" />
-        <Wrap cls="relative">
-          <h1 className="max-w-3xl text-4xl font-bold leading-tight !text-white sm:text-6xl">
+        <Wrap cls="relative grid items-center gap-10 md:grid-cols-2">
+          <div>
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight !text-white lg:text-5xl">
             Professional Water Tank Cleaning for a Cleaner, Healthier Home
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-200">
@@ -41,6 +43,8 @@ export default function Home() {
             <BookButton />
             <WhatsAppButton text="Chat on WhatsApp" />
           </div>
+          </div>
+          <Pic src="/images/hero.jpg" kind="building" className="hidden aspect-video w-full rounded-3xl border border-white/20 shadow-2xl md:block" />
         </Wrap>
       </section>
 
@@ -68,10 +72,7 @@ export default function Home() {
             </p>
             <Link to="/about-us" className="mt-6 inline-flex rounded-full bg-navy-900 px-6 py-3 font-semibold text-white hover:bg-navy-700">Learn More About Us</Link>
           </div>
-          <div className="rounded-3xl bg-gradient-to-br from-navy-900 to-aqua-600 p-10 text-white">
-            <Droplets className="mb-3 h-10 w-10 text-aqua-400" aria-hidden="true" />
-            <p className="text-xl font-semibold">Tank cleaning designed around your tank type, its condition and your requirements.</p>
-          </div>
+          <Pic src="/images/about.jpg" kind="underground" className="aspect-video w-full rounded-3xl shadow-lg" />
         </Wrap>
       </section>
 

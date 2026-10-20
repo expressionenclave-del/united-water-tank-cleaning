@@ -1,6 +1,7 @@
 import { useState, ReactNode } from 'react'
 import { ChevronDown, Droplets } from 'lucide-react'
 import { services, steps, faqs, business as b } from '../config'
+import { Pic, kindFor } from './Illustrations'
 import { BookButton, CallButton, WhatsAppButton, EmailButton } from './Layout'
 
 export function Wrap({ children, cls = '' }: { children: ReactNode; cls?: string }) {
@@ -33,9 +34,7 @@ export function ServicesGrid({ limit }: { limit?: number }) {
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {services.slice(0, limit).map((s) => (
         <article key={s.title} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-          <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-aqua-500/15 text-aqua-700">
-            <Droplets aria-hidden="true" />
-          </span>
+          <Pic src={`/images/${kindFor(s.title)}.jpg`} kind={kindFor(s.title)} alt={s.title} className="mb-4 aspect-video w-full rounded-xl" />
           <h3 className="text-lg font-semibold">{s.title}</h3>
           <p className="mt-2 flex-1 text-sm text-slate-600">{s.desc}</p>
           <WhatsAppButton
