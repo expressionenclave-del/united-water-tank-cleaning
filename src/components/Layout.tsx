@@ -5,23 +5,11 @@ import { business as b, waLink, services } from '../config'
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <span className="flex items-center gap-2">
-      <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
-        <defs>
-          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#2DD4D4" />
-            <stop offset="1" stopColor="#0E9AA7" />
-          </linearGradient>
-        </defs>
-        <rect x="4" y="6" width="40" height="36" rx="10" fill="#0A1F44" />
-        <path d="M24 11c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z" fill="url(#lg)" />
-        <path d="M14 36h20" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
-      </svg>
-      <span className={`leading-tight font-bold ${light ? 'text-white' : 'text-navy-900'}`}>
-        United
-        <span className="block text-[11px] font-semibold tracking-wider text-aqua-600">WATER TANK CLEANING</span>
-      </span>
-    </span>
+    <img
+      src="/logo.png"
+      alt="United Water Tank Cleaning Service logo"
+      className={light ? 'h-16 w-auto rounded-lg bg-white p-2' : 'h-12 w-auto'}
+    />
   )
 }
 
