@@ -152,11 +152,24 @@ export function MobileBar() {
   )
 }
 
-export function Page({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+export function Page({ title, description, children, canonical = true }: { title: string; description: string; children: ReactNode; canonical?: boolean }) {
+  const { pathname } = useLocation()
   useEffect(() => {
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
+    const url = `https://unitedwatertankcleaning.com${pathname}`
+    let link = document.querySelector('link[rel="canonical"]')
+    if (!canonical) {
+      link?.remove()
+    } else {
+      if (!link) {
+        link = document.createElement('link')
+        link.setAttribute('rel', 'canonical')
+        document.head.appendChild(link)
+      }
+      link.setAttribute('href', url)
+    }
     window.scrollTo(0, 0)
-  }, [title, description])
+  }, [title, description, pathname, canonical])
   return <>{children}</>
 }

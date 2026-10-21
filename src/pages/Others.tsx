@@ -103,7 +103,7 @@ export function Privacy() {
 
 export function NotFound() {
   return (
-    <Page title="Page Not Found | United Water Tank Cleaning Service" description="The page you are looking for could not be found.">
+    <Page canonical={false} title="Page Not Found | United Water Tank Cleaning Service" description="The page you are looking for could not be found.">
       <section className="py-24 text-center">
         <Wrap>
           <p className="text-6xl font-bold text-aqua-600">404</p>
